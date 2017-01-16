@@ -21,10 +21,12 @@ window.onload = function() {
 
   window.addEventListener('keydown',
     function(evt) {
-      if (evt.key === 'ArrowUp') { reset() };
-      if (evt.key === 'ArrowRight') { playerPiece.move(1) };
-      if (evt.key === 'ArrowLeft') { playerPiece.move(-1) };
-      if (evt.key === 'ArrowDown') {
+      // console.log(evt);
+      // Safari has slightly different keys for the keydown event handler
+      if (evt.key === 'ArrowUp' || evt.keyIdentifier === 'Up') { reset() };
+      if (evt.key === 'ArrowRight' || evt.keyIdentifier === 'Right') { playerPiece.move(1) };
+      if (evt.key === 'ArrowLeft' || evt.keyIdentifier === 'Left') { playerPiece.move(-1) };
+      if (evt.key === 'ArrowDown' || evt.keyIdentifier === 'Down') {
         var flag = 0;
         for (var i =  0; i < columns[currentCol].length; i++) {
           if (columns[currentCol][i].player === 0 && flag === 0) {
