@@ -21,7 +21,6 @@ window.onload = function() {
 
   window.addEventListener('keydown',
     function(evt) {
-      console.log(evt.key);
       if (evt.key === 'ArrowUp') { reset() };
       if (evt.key === 'ArrowRight') { playerPiece.move(1) };
       if (evt.key === 'ArrowLeft') { playerPiece.move(-1) };
@@ -32,7 +31,7 @@ window.onload = function() {
             columns[currentCol][i].changePlayer();
             flag = 1;
             if (checkWinner(currentCol, i)) {
-              // change background to green when there is a winner
+              // change background to orange when there is a winner
               bg = 'orange';
               winner = true;
             }
