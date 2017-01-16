@@ -27,18 +27,20 @@ window.onload = function() {
       if (evt.key === 'ArrowRight' || evt.keyIdentifier === 'Right') { playerPiece.move(1) };
       if (evt.key === 'ArrowLeft' || evt.keyIdentifier === 'Left') { playerPiece.move(-1) };
       if (evt.key === 'ArrowDown' || evt.keyIdentifier === 'Down') {
-        var flag = 0;
-        for (var i =  0; i < columns[currentCol].length; i++) {
-          if (columns[currentCol][i].player === 0 && flag === 0) {
-            columns[currentCol][i].changePlayer();
-            flag = 1;
-            if (checkWinner(currentCol, i)) {
-              // change background to orange when there is a winner
-              bg = 'orange';
-              winner = true;
+        if (winner === false) {
+          var flag = 0;
+          for (var i =  0; i < columns[currentCol].length; i++) {
+            if (columns[currentCol][i].player === 0 && flag === 0) {
+              columns[currentCol][i].changePlayer();
+              flag = 1;
+              if (checkWinner(currentCol, i)) {
+                // change background to orange when there is a winner
+                bg = 'orange';
+                winner = true;
+              }
+              playerPiece.changePlayer();
+              currentPlayer *= -1;
             }
-            playerPiece.changePlayer();
-            currentPlayer *= -1;
           }
         }
       };
