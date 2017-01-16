@@ -2,7 +2,7 @@ function GamePiece(x, y, player, stroke) {
   this.x = x;
   this.y = y;
   this.player = player;
-  this.radius = 25;
+  this.radius = 24;
   this.stroke = stroke;
 
   this.show  = function() {
