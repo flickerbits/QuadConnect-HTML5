@@ -2,13 +2,12 @@
 var canvas;
 var canvasContext;
 var columns;
-var currentPiece;
+var playerPiece;
 var currentPlayer = 1;
 var currentCol = 0;
 var spacing = 60;
 var winner = false;
 var bg = 'blue';
-var playerPiece;
 
 window.onload = function() {
   canvas = document.getElementById('gameBoard');
@@ -26,6 +25,22 @@ window.onload = function() {
       if (evt.key === 'ArrowUp') { reset() };
       if (evt.key === 'ArrowRight') { playerPiece.move(1) };
       if (evt.key === 'ArrowLeft') { playerPiece.move(-1) };
+      if (evt.key === 'ArrowDown') {
+        var flag = 0;
+        for (var i =  0; i < columns[currentCol].length; i++) {
+          if (columns[currentCol][i].player === 0 && flag === 0) {
+            columns[currentCol][i].changePlayer();
+            flag = 1;
+            // if (checkWinner(currentCol, i)) {
+            //   // change background to green when there is a winner
+            //   bg = {'r':0, 'g':180, 'b':0};
+            //   winner = true;
+            // }
+            playerPiece.changePlayer();
+            currentPlayer *= -1;
+          }
+        }
+      };
       redrawAll();
     });
 }
