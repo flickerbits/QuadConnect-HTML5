@@ -14,7 +14,7 @@ window.onload = function() {
   canvasContext = canvas.getContext('2d');
   canvasContext.fillStyle = bg;
   canvasContext.fillRect(0, 0, canvas.width, canvas.height);
-  playerPiece = new GamePiece(40, 95, currentPlayer, 2);
+  playerPiece = new GamePiece(40, 95, currentPlayer, 1);
   playerPiece.show();
   reset();
   redrawAll();
@@ -31,11 +31,11 @@ window.onload = function() {
           if (columns[currentCol][i].player === 0 && flag === 0) {
             columns[currentCol][i].changePlayer();
             flag = 1;
-            // if (checkWinner(currentCol, i)) {
-            //   // change background to green when there is a winner
-            //   bg = {'r':0, 'g':180, 'b':0};
-            //   winner = true;
-            // }
+            if (checkWinner(currentCol, i)) {
+              // change background to green when there is a winner
+              bg = 'orange';
+              winner = true;
+            }
             playerPiece.changePlayer();
             currentPlayer *= -1;
           }
@@ -66,7 +66,7 @@ function reset() {
   for (var i = 0; i < 7; i++) {
     columns[i]= [];
     for (var j = 0; j < 6; j++) {
-      var gamePiece = new GamePiece(x, y - (j * spacing), 0, 2);
+      var gamePiece = new GamePiece(x, y - (j * spacing), 0, 1);
       columns[i].push(gamePiece);
     }
     x += spacing;
