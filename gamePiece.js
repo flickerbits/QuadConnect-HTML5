@@ -7,15 +7,11 @@ function GamePiece(x, y, player, stroke) {
 
   this.show  = function() {
     var color;
-    
     if (this.player === 1) { color = 'red' }; // player 1 = RED
     if (this.player === -1) { color = 'yellow' }; // player 2 = YELLOW
     if (this.player === 0) { color = 'grey' }; // empty space = GREY
-
-    // draw stroke
-    this.drawCircle(this.x, this.y, this.radius + this.stroke, 'black');
-    // draw gamePiece
-    this.drawCircle(this.x, this.y, this.radius, color);
+    this.drawCircle(this.x, this.y, this.radius + this.stroke, 'black'); // draw stroke
+    this.drawCircle(this.x, this.y, this.radius, color); // draw gamePiece
   }
 
   this.move = function(dir) {
@@ -34,8 +30,7 @@ function GamePiece(x, y, player, stroke) {
     }
   }
 
-  this.drawCircle = function(x, y, radius, color, stroke, strokeColor) {
-    // draw circle & fill
+  this.drawCircle = function(x, y, radius, color) {
     canvasContext.fillStyle = color;
     canvasContext.beginPath();
     canvasContext.arc(x, y, radius, 0, Math.PI*2, true);
