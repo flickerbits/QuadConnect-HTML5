@@ -7,11 +7,11 @@ function GamePiece(x, y, player, stroke) {
 
   this.show  = function() {
     var color;
-    if (this.player === 1) { color = 'red' };                           // player 1 = RED
-    if (this.player === -1) { color = 'yellow' };                       // player 2 = YELLOW
-    if (this.player === 0) { color = 'grey' };                          // empty space = GREY
-    this.drawCircle(this.x, this.y, this.radius + this.stroke - 1, 'black');              // draw stroke
-    this.drawCircle(this.x, this.y, this.radius - 1, color);  // draw gamePiece
+    if (this.player === 1) { color = 'red' };                                 // player 1 = RED
+    if (this.player === -1) { color = 'yellow' };                             // player 2 = YELLOW
+    if (this.player === 0) { color = 'grey' };                                // empty space = GREY
+    this.drawCircle(this.x, this.y, this.radius + this.stroke - 1, 'black');  // draw stroke
+    this.drawCircle(this.x, this.y, this.radius - 1, color);                  // draw gamePiece
   }
 
   this.move = function(dir) {
