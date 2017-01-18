@@ -11,10 +11,14 @@ a version of the game using only HTML5 and JavaScript with no other dependencies
 
 When a player successfully executes a **QuadConnect**, the background turns orange and the winning pieces are highlighted!
 
+## History
+
 QuadConnect was originally a one-day project to learn about the **p5.js** library.
 This inspired me to code this version with HTML5 + JavaScript and **no dependencies**.
 
-## Play QuadConnect HTML5+JS
+* [Link to p5.js version repository](https://github.com/flickerbits/QuadConnect-p5.js)
+
+## Play QuadConnect- HTML5+JS
 
 * [Play QuadConnect](https://flickerbits.github.io/QuadConnect-HTML5/)
 
